@@ -1,7 +1,15 @@
 apply from: "$rootDir/module.gradle"
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile project(':libyuv-single')
+    api project(':libyuv-single')
+}
+android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+        }
+    }
 }

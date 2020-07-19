@@ -1,11 +1,11 @@
 package com.onzhou.lame.main;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.os.AsyncTaskCompat;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
+import com.onzhou.ffmpeg.task.AsyncTaskCompat;
 import com.onzhou.lame.encode.LameEncoder;
 import com.onzhou.audio.lame.R;
 import com.onzhou.ffmpeg.base.AbsBaseActivity;

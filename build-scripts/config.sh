@@ -1,6 +1,5 @@
-
 #NDK路径
-export ANDROID_NDK_ROOT=/home/byhook/android/android-ndk-r10e
+export ANDROID_NDK_ROOT=/Users/renk/Library/Android/sdk/android-ndk-r10e
 
 export AOSP_TOOLCHAIN_SUFFIX=4.9
 
@@ -12,6 +11,9 @@ if [ "$#" -lt 1 ]; then
 else
 	THE_ARCH=$(tr [A-Z] [a-z] <<< "$1")
 fi
+
+AOSP_ARCH_LAB_PATH="usr/lib"
+AOSP_CPU=""
 
 #根据不同架构配置环境变量
 case "$THE_ARCH" in
@@ -60,9 +62,11 @@ case "$THE_ARCH" in
 	TOOLNAME_BASE="aarch64-linux-android"
 	AOSP_ABI="arm64-v8a"
 	AOSP_ARCH="arch-arm64"
+	AOSP_CPU=" --cpu=armv8-a"
 	HOST="aarch64-linux"
 	AOSP_FLAGS="-funwind-tables -fexceptions -frtti"
-	FF_EXTRA_CFLAGS=""
+#	FF_EXTRA_CFLAGS=""
+	FF_EXTRA_CFLAGS=" -march=armv8-a"
 	FF_CFLAGS="-O3 -Wall -pipe -ffast-math -fstrict-aliasing -Werror=strict-aliasing -Wno-psabi -Wa,--noexecstack -DANDROID  "
 	;;
   mips|mipsel)
@@ -97,6 +101,7 @@ case "$THE_ARCH" in
 	AOSP_ABI="x86_64"
 	AOSP_ARCH="arch-x86_64"
 	HOST="x86_64-linux"
+	AOSP_ARCH_LAB_PATH="usr/lib64" # ...platforms/android-21/arch-x86_64/usr/lib64
 	AOSP_FLAGS="-march=x86-64 -msse4.2 -mpopcnt -mtune=intel -funwind-tables -fexceptions -frtti"
 	FF_EXTRA_CFLAGS="-O3 -DANDROID -Dipv6mr_interface=ipv6mr_ifindex -fasm -Wno-psabi -fno-short-enums -fno-strict-aliasing -fomit-frame-pointer -march=k8 "
         FF_CFLAGS="-O3 -Wall -pipe -ffast-math -fstrict-aliasing -Werror=strict-aliasing -Wno-psabi -Wa,--noexecstack -DANDROID  "

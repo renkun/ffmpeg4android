@@ -1,1 +1,10 @@
 apply from: "$rootDir/module.gradle"
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+        }
+    }
+}

@@ -1,13 +1,13 @@
 package com.onzhou.ffmpeg.cmd;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.os.AsyncTaskCompat;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
 import com.onzhou.ffmpeg.base.AbsBaseActivity;
 import com.onzhou.ffmpeg.task.AssertReleaseTask;
+import com.onzhou.ffmpeg.task.AsyncTaskCompat;
 
 import java.io.File;
 

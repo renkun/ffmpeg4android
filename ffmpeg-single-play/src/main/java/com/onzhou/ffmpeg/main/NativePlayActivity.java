@@ -1,8 +1,7 @@
 package com.onzhou.ffmpeg.main;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.os.AsyncTaskCompat;
+import androidx.annotation.Nullable;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -12,6 +11,7 @@ import com.onzhou.ffmpeg.base.AbsBaseActivity;
 import com.onzhou.ffmpeg.player.NativePlayer;
 import com.onzhou.ffmpeg.play.R;
 import com.onzhou.ffmpeg.task.AssertReleaseTask;
+import com.onzhou.ffmpeg.task.AsyncTaskCompat;
 
 import java.io.File;
 

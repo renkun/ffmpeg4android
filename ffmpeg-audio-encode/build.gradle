@@ -5,5 +5,9 @@ android {
         debug {
             jniDebuggable true
         }
+        release {
+            minifyEnabled true
+            shrinkResources true
+        }
     }
 }
